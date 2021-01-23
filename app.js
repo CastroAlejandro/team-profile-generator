@@ -53,7 +53,7 @@ function buildManager() {
 	{
 		name: "id",
 		type: "input",
-		message: "id?"
+		message: "id?",
 		validate: (response) => {
 			if (response === "") {
 				return ("Please enter an id")
@@ -64,7 +64,7 @@ function buildManager() {
 	{
 		name: "email",
 		type: "input",
-		message: "email?"
+		message: "email?",
 		validate: (response) => {
 			if (response === "") {
 				return ("Please enter an email")
@@ -75,7 +75,7 @@ function buildManager() {
 	{
 		name: "officeNumber",
 		type: "input",
-		message: "officeNumber?"
+		message: "officeNumber?",
 		validate: (response) => {
 			if (response === "") {
 				return ("Please enter an office number")
@@ -92,7 +92,7 @@ function buildIntern() {
 	inquirer.prompt([{
 		name: "name",
 		type: "input",
-		message: "name?"
+		message: "name?",
 		validate: (response) => {
 			if (response === "") {
 				return ("Please enter a name")
@@ -103,7 +103,7 @@ function buildIntern() {
 	{
 		name: "id",
 		type: "input",
-		message: "id?"
+		message: "id?",
 		validate: (response) => {
 			if (response === "") {
 				return ("Please enter an id")
@@ -114,7 +114,7 @@ function buildIntern() {
 	{
 		name: "email",
 		type: "input",
-		message: "email?"
+		message: "email?",
 		validate: (response) => {
 			if (response === "") {
 				return ("Please enter an email")
@@ -125,7 +125,7 @@ function buildIntern() {
 	{
 		name: "school",
 		type: "input",
-		message: "school?"
+		message: "school?",
 		validate: (response) => {
 			if (response === "") {
 				return ("Please enter a school")
@@ -143,7 +143,7 @@ function buildEngineer() {
 	inquirer.prompt([{
 		name: "name",
 		type: "input",
-		message: "name?"
+		message: "name?",
 		validate: (response) => {
 			if (response === "") {
 				return ("Please enter a name")
