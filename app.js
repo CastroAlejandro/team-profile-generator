@@ -144,27 +144,51 @@ function buildEngineer() {
 		name: "name",
 		type: "input",
 		message: "name?"
+		validate: (response) => {
+			if (response === "") {
+				return ("Please enter a name")
+			}
+			return true;
+		}
 	},
 	{
 		name: "id",
 		type: "input",
-		message: "id?"
+		message: "id?",
+		validate: (response) => {
+			if (response === "") {
+				return ("Please enter an id")
+			}
+			return true;
+		}
 	},
 	{
 		name: "email",
 		type: "input",
-		message: "email?"
+		message: "email?",
+		validate: (response) => {
+			if (response === "") {
+				return ("Please enter an email")
+			}
+			return true;
+		}
 	},
 	{
 		name: "github",
 		type: "input",
-		message: "github?"
+		message: "github?",
+		validate: (response) => {
+			if (response === "") {
+				return ("Please enter your github name")
+			}
+			return true;
+		}
 	}])
 		.then(function (answers) {
 			employee_objects.push(new Engineer(answers.name, answers.id, answers.email, answers.github))
 			init()
 		})
-}
+};
 
 // const base = [
 // 	{
