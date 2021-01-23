@@ -9,6 +9,213 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const employee_objects = []
+
+
+init()
+
+function init() {
+	inquirer.prompt({
+		name: "type",
+		type: "list",
+		choices: ['manager', 'intern', 'engineer', 'done']
+	})
+		.then(function (answer) {
+
+			switch (answer.type) {
+				case "manager":
+					return buildManager()
+				case "intern":
+					return buildIntern()
+				case "engineer":
+					return buildEngineer()
+				default:
+					const html = render(employee_objects)
+					fs.writeFile(outputPath, html, function (err) {
+						if (err) throw err;
+					})
+			}
+		})
+}
+
+function buildManager() {
+	inquirer.prompt([{
+		name: "name",
+		type: "input",
+		message: "name?",
+		validate: (response) => {
+			if (response === "") {
+				return ("Please enter a name")
+			}
+			return true;
+		}
+	},
+	{
+		name: "id",
+		type: "input",
+		message: "id?"
+		validate: (response) => {
+			if (response === "") {
+				return ("Please enter an id")
+			}
+			return true;
+		}
+	},
+	{
+		name: "email",
+		type: "input",
+		message: "email?"
+		validate: (response) => {
+			if (response === "") {
+				return ("Please enter an email")
+			}
+			return true;
+		}
+	},
+	{
+		name: "officeNumber",
+		type: "input",
+		message: "officeNumber?"
+		validate: (response) => {
+			if (response === "") {
+				return ("Please enter an office")
+			}
+			return true;
+		}
+	}])
+		.then(function (answers) {
+			employee_objects.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber))
+			init()
+		})
+}
+function buildIntern() {
+	inquirer.prompt([{
+		name: "name",
+		type: "input",
+		message: "name?"
+	},
+	{
+		name: "id",
+		type: "input",
+		message: "id?"
+	},
+	{
+		name: "email",
+		type: "input",
+		message: "email?"
+	}, 
+	{
+		name: "school",
+		type: "input",
+		message: "school?"
+	}])
+		.then(function (answers) {
+			employee_objects.push(new Intern(answers.name, answers.id, answers.email, answers.school))
+			init()
+		})
+}
+function buildEngineer() {
+
+	inquirer.prompt([{
+		name: "name",
+		type: "input",
+		message: "name?"
+	},
+	{
+		name: "id",
+		type: "input",
+		message: "id?"
+	},
+	{
+		name: "email",
+		type: "input",
+		message: "email?"
+	},
+	{
+		name: "github",
+		type: "input",
+		message: "github?"
+	}])
+		.then(function (answers) {
+			employee_objects.push(new Engineer(answers.name, answers.id, answers.email, answers.github))
+			init()
+		})
+}
+
+// const base = [
+// 	{
+// 		name: "name",
+// 		type: "input",
+// 		message: "name?"
+// 	},
+// 	{
+// 		name: "id",
+// 		type: "input",
+// 		message: "id?"
+// 	},
+// 	{
+// 		name: "email",
+// 		type: "input",
+// 		message: "email?"
+// 	},
+// ]
+
+// const addInfo = {
+// 	manager: {
+// 		Employee: Manager,
+// 		arg: {
+// 			name: "extra",
+// 			type: "input",
+// 			message: "officeNumber?"
+// 		}
+// 	},
+// 	intern: {
+// 		Employee: Intern,
+// 		arg: {
+// 			name: "extra",
+// 			type: "input",
+// 			message: "school?"
+// 		}
+// 	},
+// 	engineer: {
+// 		Employee: Engineer,
+// 		arg: {
+// 			name: "extra",
+// 			type: "input",
+// 			message: "GitHub?"
+// 		}
+// 	}
+// }
+
+// function init() {
+// 	inquirer.prompt({
+// 		name: "type",
+// 		type: "list",
+// 		choices: ['manager', 'intern', 'engineer', 'done']
+// 	})
+// 		.then(function (answer) {
+// 			if (answer.type in addInfo) {
+// 				return getEmployee(answer.type)
+// 			}
+
+// 			const html = render(employee_objects)
+// 			fs.writeFile(outputPath, html, function (err) {
+// 				if (err) throw err;
+// 			})
+// 		})
+// }
+
+// function getEmployee(empType) {
+// 	const { Employee, arg } = addInfo[empType]
+// 	const prompts = [...base, arg]
+
+// 	inquirer.prompt(prompts)
+// 		.then(function (answers) {
+// 			employee_objects.push(new Employee(...Object.values(answers)))
+// 			init()
+// 		})
+// }
+
 
 
 // Write code to use inquirer to gather information about the development team members,
@@ -17,7 +224,6 @@ const render = require("./lib/htmlRenderer");
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
-
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
 // `output` folder. You can use the variable `outputPath` above target this location.
