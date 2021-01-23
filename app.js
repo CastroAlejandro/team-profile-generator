@@ -78,7 +78,7 @@ function buildManager() {
 		message: "officeNumber?"
 		validate: (response) => {
 			if (response === "") {
-				return ("Please enter an office")
+				return ("Please enter an office number")
 			}
 			return true;
 		}
@@ -93,21 +93,45 @@ function buildIntern() {
 		name: "name",
 		type: "input",
 		message: "name?"
+		validate: (response) => {
+			if (response === "") {
+				return ("Please enter a name")
+			}
+			return true;
+		}
 	},
 	{
 		name: "id",
 		type: "input",
 		message: "id?"
+		validate: (response) => {
+			if (response === "") {
+				return ("Please enter an id")
+			}
+			return true;
+		}
 	},
 	{
 		name: "email",
 		type: "input",
 		message: "email?"
+		validate: (response) => {
+			if (response === "") {
+				return ("Please enter an email")
+			}
+			return true;
+		}
 	}, 
 	{
 		name: "school",
 		type: "input",
 		message: "school?"
+		validate: (response) => {
+			if (response === "") {
+				return ("Please enter a school")
+			}
+			return true;
+		}
 	}])
 		.then(function (answers) {
 			employee_objects.push(new Intern(answers.name, answers.id, answers.email, answers.school))
