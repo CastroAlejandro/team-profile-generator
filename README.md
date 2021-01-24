@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Preview
-[Watch the video]()
+[Watch the video](https://drive.google.com/file/d/1j-UJyJ3rr7f_kf83M5Zfn03RgrwMZYSg/view)
 
 ## Description
 
