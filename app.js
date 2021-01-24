@@ -66,10 +66,10 @@ function buildManager() {
 		type: "input",
 		message: "email?",
 		validate: (response) => {
-			if (response === "") {
-				return ("Please enter an email")
+			if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(response)) {
+				return true;
 			}
-			return true;
+			return ("Please enter an email")
 		}
 	},
 	{
@@ -116,10 +116,10 @@ function buildIntern() {
 		type: "input",
 		message: "email?",
 		validate: (response) => {
-			if (response === "") {
-				return ("Please enter an email")
+			if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(response)) {
+				return true;
 			}
-			return true;
+			return ("Please enter an email")
 		}
 	}, 
 	{
@@ -167,10 +167,10 @@ function buildEngineer() {
 		type: "input",
 		message: "email?",
 		validate: (response) => {
-			if (response.trim() === "") {
-				return ("Please enter an email")
+			if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(response)) {
+				return true;
 			}
-			return true;
+			return ("Please enter an email")
 		}
 	},
 	{
@@ -190,79 +190,7 @@ function buildEngineer() {
 		})
 };
 
-// const base = [
-// 	{
-// 		name: "name",
-// 		type: "input",
-// 		message: "name?"
-// 	},
-// 	{
-// 		name: "id",
-// 		type: "input",
-// 		message: "id?"
-// 	},
-// 	{
-// 		name: "email",
-// 		type: "input",
-// 		message: "email?"
-// 	},
-// ]
 
-// const addInfo = {
-// 	manager: {
-// 		Employee: Manager,
-// 		arg: {
-// 			name: "extra",
-// 			type: "input",
-// 			message: "officeNumber?"
-// 		}
-// 	},
-// 	intern: {
-// 		Employee: Intern,
-// 		arg: {
-// 			name: "extra",
-// 			type: "input",
-// 			message: "school?"
-// 		}
-// 	},
-// 	engineer: {
-// 		Employee: Engineer,
-// 		arg: {
-// 			name: "extra",
-// 			type: "input",
-// 			message: "GitHub?"
-// 		}
-// 	}
-// }
-
-// function init() {
-// 	inquirer.prompt({
-// 		name: "type",
-// 		type: "list",
-// 		choices: ['manager', 'intern', 'engineer', 'done']
-// 	})
-// 		.then(function (answer) {
-// 			if (answer.type in addInfo) {
-// 				return getEmployee(answer.type)
-// 			}
-
-// 			const html = render(employee_objects)
-// 			fs.writeFile(outputPath, html, function (err) {
-// 				if (err) throw err;
-// 			})
-// 		})
-// }
-
-// function getEmployee(empType) {
-// 	const { Employee, arg } = addInfo[empType]
-// 	const prompts = [...base, arg]
-
-// 	inquirer.prompt(prompts)
-// 		.then(function (answers) {
-// 			employee_objects.push(new Employee(...Object.values(answers)))
-// 			init()
-// 		})
-// }
 
 
 
