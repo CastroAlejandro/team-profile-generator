@@ -44,7 +44,7 @@ function buildManager() {
 		type: "input",
 		message: "name?",
 		validate: (response) => {
-			if (response === "") {
+			if (response.trim() === "") {
 				return ("Please enter a name")
 			}
 			return true;
@@ -55,7 +55,7 @@ function buildManager() {
 		type: "input",
 		message: "id?",
 		validate: (response) => {
-			if (response === "") {
+			if (isNaN(response) || response.trim() === "") {
 				return ("Please enter an id")
 			}
 			return true;
@@ -77,7 +77,7 @@ function buildManager() {
 		type: "input",
 		message: "officeNumber?",
 		validate: (response) => {
-			if (response === "") {
+			if (isNaN(response) || response.trim() === "") {
 				return ("Please enter an office number")
 			}
 			return true;
@@ -94,7 +94,7 @@ function buildIntern() {
 		type: "input",
 		message: "name?",
 		validate: (response) => {
-			if (response === "") {
+			if (response.trim() === "") {
 				return ("Please enter a name")
 			}
 			return true;
@@ -105,7 +105,7 @@ function buildIntern() {
 		type: "input",
 		message: "id?",
 		validate: (response) => {
-			if (response === "") {
+			if (isNaN(response) || response.trim() === "") {
 				return ("Please enter an id")
 			}
 			return true;
@@ -127,7 +127,7 @@ function buildIntern() {
 		type: "input",
 		message: "school?",
 		validate: (response) => {
-			if (response === "") {
+			if (response.trim() === "") {
 				return ("Please enter a school")
 			}
 			return true;
@@ -145,7 +145,7 @@ function buildEngineer() {
 		type: "input",
 		message: "name?",
 		validate: (response) => {
-			if (response === "") {
+			if (response.trim() === "") {
 				return ("Please enter a name")
 			}
 			return true;
@@ -156,7 +156,7 @@ function buildEngineer() {
 		type: "input",
 		message: "id?",
 		validate: (response) => {
-			if (response === "") {
+			if (isNaN(response) || response.trim() === "") {
 				return ("Please enter an id")
 			}
 			return true;
@@ -167,7 +167,7 @@ function buildEngineer() {
 		type: "input",
 		message: "email?",
 		validate: (response) => {
-			if (response === "") {
+			if (response.trim() === "") {
 				return ("Please enter an email")
 			}
 			return true;
@@ -178,7 +178,7 @@ function buildEngineer() {
 		type: "input",
 		message: "github?",
 		validate: (response) => {
-			if (response === "") {
+			if (response.trim() === "") {
 				return ("Please enter your github name")
 			}
 			return true;
